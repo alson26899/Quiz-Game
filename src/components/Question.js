@@ -7,7 +7,8 @@ const questions1 ={
         "op2": "Russia",
         "op3": "United States",
         "op4": "China",
-        "ans" : 1
+        "ans" : 1,
+        "clue": "Good in football"
     },
     {
         "qn": "How many “UEFA Best Player in Europe” award did Messi receive?",
@@ -15,7 +16,8 @@ const questions1 ={
         "op2": 2,
         "op3": 3,
         "op4": 4,
-        "ans" : 2
+        "ans" : 2,
+        "clue": 'coin'
     },
     {
         "qn": "Which sport is known as the gentleman's game?",
@@ -23,7 +25,8 @@ const questions1 ={
         "op2": "Cricket",
         "op3": "Golf",
         "op4": "Rugby",
-        "ans" : 2
+        "ans" : 2,
+        "clue": "Eleven"
     },
     {
         "qn": "Which country has won the most Olympic gold medals in basketball?",
@@ -31,7 +34,8 @@ const questions1 ={
         "op2": "Spain",
         "op3": "Australia",
         "op4": "Soviet Union (USSR)",
-        "ans" : 1
+        "ans" : 1,
+        "clue": "starts with A"
     },
     {
         "qn": "Who won the FIFA Women's World Cup in 2019?",
@@ -39,7 +43,8 @@ const questions1 ={
         "op2": "Germany",
         "op3": "Brazil",
         "op4": "Japan",
-        "ans" : 1
+        "ans" : 1,
+        "clue": "starts with A"
     }]
 }
 

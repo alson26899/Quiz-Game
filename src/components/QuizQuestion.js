@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const QuizQuestion = ({quizDetails,isCorrect}) => {
+const QuizQuestion = ({quizDetails,isCorrect,animationKey}) => {
   const [quizDetail, setQuizDetail] = useState({});
-//   const [animationKey,setAnimationKey] = useState(0);
 
   useEffect(() => {
       setQuizDetail(quizDetails);
-  }, []);
-
-//   useEffect(()=>{
-//     setAnimationKey((prevKey) => prevKey + 1); 
-//   },[isCorrect])
-
+  }, [isCorrect]);
 
   const questionStyle = {
     position: 'absolute',
@@ -25,7 +19,7 @@ const QuizQuestion = ({quizDetails,isCorrect}) => {
 
   return (quizDetail) ? (
     <motion.div className='quiz-question' 
-                // key={animationKey}
+                key={animationKey}
                 style={questionStyle}                    
                 initial={{ left: '3000px' }}
                 animate={{ left: '520px' }}

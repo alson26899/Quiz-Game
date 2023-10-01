@@ -4,6 +4,8 @@ import homeImg from '../assets/deliveryBoy.png'
 import { motion } from 'framer-motion';
 import { Button} from 'react-bootstrap';
 import DropdownControl from './Dropdown';
+import ModalControl from './Modal';
+import { InputGroup,Form } from 'react-bootstrap';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -42,7 +44,13 @@ const Home = () => {
                     <li className='pb-2'>Consider the answer choices carefully</li>
                     <li className='pb-2'>Questions will be shown on the helicopter</li>
                     <li className='pb-2'>Move the vehicle to the correct option by clicking the option</li>
-                </ul>  
+                </ul> 
+                <div>
+                <InputGroup className="mb-3">
+                    <InputGroup.Checkbox aria-label="Checkbox for following text input" defaultChecked={true}/>
+                    <Form.Control aria-label="Text input with checkbox" value="Reveal answers to participants"/>
+                </InputGroup>    
+                </div> 
                 <div className='button-ctr' style={{display:'flex',columnGap:'20px'}}>
                     {renderDropdown()}
                     {renderButton()}   
@@ -53,10 +61,11 @@ const Home = () => {
 
     return (
         <div style={homeStyle}>
+            <ModalControl/>
             <motion.img
                 src={homeImg}
                 alt={"home-img"}
-                style={{position:'relative',maxWidth: 'unset',height:'100%'}}
+                style={{position:'relative',maxWidth: 'unset',height:'100%', width:'50%'}}
             />
             {renderInstructions()}
         </div>

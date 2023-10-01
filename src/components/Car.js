@@ -8,12 +8,33 @@ import wood2 from '../assets/wood4.png';
 import ImageControl from './ImageControl';
 import tLight from '../assets/trafficLight.png'
 import scooterImg from '../assets/scooter.png';
+import audioFile from '../assets/audio.mp3'
 
 const Car = ({quizId,onSelect,questionIndex}) => {
 
     const [position,setPosition] = useState(0);
     const [quizDetails,setQuizDetails]= useState([]);
     const [isCorrect,setIsCorrect] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect(() => {
+        const audioElement = new Audio(audioFile);
+        
+        if (isPlaying) {
+            audioElement.currentTime = 10;
+           audioElement.play();
+        } else {
+          audioElement.pause();
+          audioElement.currentTime = 0;
+        }
+    
+        return () => {
+          audioElement.pause();
+          audioElement.currentTime = 0;
+        };
+      }, [isPlaying]);
+    
+
 
     useEffect(()=>{
         const quizContent= questions.filter((question)=>question.quizId === quizId);
@@ -52,8 +73,10 @@ const Car = ({quizId,onSelect,questionIndex}) => {
         }
         setPosition(movement);
         setIsCorrect(position === currentQuestion.ans);
+        setIsPlaying(true)
         setTimeout(()=>{
             onSelect(position === currentQuestion.ans,questionIndex);
+            setIsPlaying(false)
         },1500)
     }
 
